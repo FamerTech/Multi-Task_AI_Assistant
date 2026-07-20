@@ -8,7 +8,6 @@ import chromadb
 from chromadb.utils import embedding_functions
 from pypdf import PdfReader
 from gtts import gTTS
-from moviepy.editor import *
 import speech_recognition as sr
 from fpdf import FPDF
 import sqlite3
