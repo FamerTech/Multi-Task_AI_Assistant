@@ -1,0 +1,15 @@
+streamlit
+groq
+torch
+tavily-python
+chromadb
+sentence-transformers
+pypdf
+speechrecognition
+fpdf
+gTTS
+bcrypt
+huggingface_hub
+diffusers
+transformers
+accelerate
