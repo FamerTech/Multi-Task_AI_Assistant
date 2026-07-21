@@ -611,7 +611,7 @@ else: # User is logged in
                     except Exception as e:
                         st.error(f"An error occurred during PDF generation: {e}")
 
-     elif selected_page == 'Prompt Generation':
+   elif selected_page == 'Prompt Generation':
         st.title("🎨 Lion AI Image Prompt Agent")
         st.write("Describe the image you envision, and I will generate a detailed prompt for an image generation AI.")
 
