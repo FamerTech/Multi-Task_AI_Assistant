@@ -125,7 +125,7 @@ with st.sidebar:
     else:
         selected_page = st.sidebar.selectbox(
             "Choose a page",
-            ['Research Assistant', 'StudyMate', 'Convert Audio To Text', 'Convert Text To PDF', 'Generate Prompt For Image']
+            ['Research Assistant', 'StudyMate', 'Convert Audio To Text', 'Convert Text To PDF', 'Prompt Generation']
         )
 
 # --- Main Page Content Logic ---
@@ -611,8 +611,8 @@ else: # User is logged in
                     except Exception as e:
                         st.error(f"An error occurred during PDF generation: {e}")
 
-    elif selected_page == 'Generate Prompt For Image':
-        st.title("🎨 Lion AI Image Prompt Agent")
+    elif selected_page == 'Prompt Generation':
+        st.title("🎨 Generate Prompt WIth Lion AI")
         st.write("Describe the image you envision, and I will generate a detailed prompt for an image generation AI.")
         st.caption("It can assist in generating diverse prompts, excluding image-related ones.")
 
@@ -622,7 +622,7 @@ else: # User is logged in
             if not user_image_request:
                 st.warning("Please provide a description for the image you want to design.")
             else:
-                with st.spinner("Designing image prompt..."):
+                with st.spinner("Generating..."):
                     try:
                         system_prompt = "You are an AI specializing in crafting highly detailed and creative prompts for image generation models. Expand on the user's request with vivid imagery, artistic styles, lighting, and composition details. Provide a single, concise prompt suitable for a modern image generation AI like DALL-E or Midjourney."
                         messages = [
