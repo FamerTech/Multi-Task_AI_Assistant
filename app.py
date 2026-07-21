@@ -79,7 +79,7 @@ if not tavily_api_key:
     st.stop() # Stop the app if API key is missing
 
 # Hugging Face Token for Image Generation
-os.environ['HF_TOKEN'] = hf_token_from_secrets
+hf_token_from_secrets = os.environ['HF_TOKEN'] 
 hf_token = os.environ.get('HF_TOKEN')
 if not hf_token:
     st.info("HF_TOKEN environment variable not found. Image generation will not be available. Please set it in Colab secrets.")
