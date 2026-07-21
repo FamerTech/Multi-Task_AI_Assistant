@@ -125,7 +125,7 @@ with st.sidebar:
     else:
         selected_page = st.sidebar.selectbox(
             "Choose a page",
-            ['Research Assistant', 'StudyMate', 'Convert Voice To Text', 'Convert Text To PDF', 'Generate Prompt For Image', 'Generate Image With Lion']
+            ['Research Assistant', 'StudyMate', 'Convert Audio To Text', 'Convert Text To PDF', 'Generate Prompt For Image']
         )
 
 # --- Main Page Content Logic ---
@@ -524,8 +524,8 @@ else: # User is logged in
                         run_agent(st.session_state.conversation)
                     st.write(answer)
 
-    elif selected_page == 'Convert Voice To Text':
-        st.title("🎤 Lion AI Voice To Text")
+    elif selected_page == 'Convert Audio To Text':
+        st.title("🎤 convert Audio To Text With Lion AI")
         st.write("Upload an audio file and get its transcription.")
 
         uploaded_audio = st.file_uploader("Upload Audio File", type=["wav", "mp3"])
@@ -576,7 +576,7 @@ else: # User is logged in
                         st.error(f"An error occurred during transcription: {e}")
 
     elif selected_page == 'Convert Text To PDF':
-        st.title("📄 Text To PDF by  Lion AI ")
+        st.title("📄 Convert Text To PDF With Lion AI ")
         st.write("Enter text and generate a PDF document.")
 
         pdf_text = st.text_area("Enter text for your PDF here:", height=300)
@@ -614,6 +614,7 @@ else: # User is logged in
     elif selected_page == 'Generate Prompt For Image':
         st.title("🎨 Lion AI Image Prompt Agent")
         st.write("Describe the image you envision, and I will generate a detailed prompt for an image generation AI.")
+        st.caption("It can assist in generating diverse prompts, excluding image-related ones.")
 
         user_image_request = st.text_area("Describe your desired image:", height=150, help="e.g., 'A futuristic city at sunset' or 'A fluffy cat wearing a crown'")
 
