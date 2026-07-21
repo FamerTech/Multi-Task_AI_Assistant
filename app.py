@@ -82,7 +82,8 @@ if not tavily_api_key:
 hf_token = os.environ.get('HF_TOKEN')
 if not hf_token:
     st.info("HF_TOKEN environment variable not found. Image generation will not be available. Please set it in Colab secrets.")
-
+    st.stop()
+    
 # --- User Management Functions ---
 def add_user(username, password):
     conn = sqlite3.connect(DATABASE_FILE)
