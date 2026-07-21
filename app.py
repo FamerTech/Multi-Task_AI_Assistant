@@ -613,16 +613,17 @@ else: # User is logged in
                         st.error(f"An error occurred during PDF generation: {e}")
 
     elif selected_page == 'Prompt Generation':
-        st.title("🎨 Lion AI Image Prompt Agent")
+        st.title("🎨 Generate Prompt With Lion AI")
         st.write("Describe the image you envision, and I will generate a detailed prompt for an image generation AI.")
+        st.caption("Do not forget - you can use this model for any other prompt...") 
 
         user_image_request = st.text_area("Describe your desired image:", height=150, help="e.g., 'A futuristic city at sunset' or 'A fluffy cat wearing a crown'")
 
-        if st.button("Design Image Prompt"):
+        if st.button("Generate"):
             if not user_image_request:
                 st.warning("Please provide a description for the image you want to design.")
             else:
-                with st.spinner("Designing image prompt..."):
+                with st.spinner("Generating..."):
                     try:
                         system_prompt = "You are an AI specializing in crafting highly detailed and creative prompts for image generation models. Expand on the user's request with vivid imagery, artistic styles, lighting, and composition details. Provide a single, concise prompt suitable for a modern image generation AI like DALL-E or Midjourney."
                         messages = [
