@@ -611,7 +611,7 @@ else: # User is logged in
                     except Exception as e:
                         st.error(f"An error occurred during PDF generation: {e}")
 
-   elif selected_page == 'Prompt Generation':
+    elif selected_page == 'Prompt Generation':
         st.title("🎨 Lion AI Image Prompt Agent")
         st.write("Describe the image you envision, and I will generate a detailed prompt for an image generation AI.")
 
@@ -623,7 +623,7 @@ else: # User is logged in
             else:
                 with st.spinner("Designing image prompt..."):
                     try:
-                        system_prompt = "You are an AI specializing in crafting highly detailed and creative prompts for image generation models. Expand on the user's request with vivid imagery, artistic styles, lighting, and composition details. Provide a single, concise prompt suitable for a modern image generation AI like DALL-E or Midjourney."
+                        system_prompt = "You are an AI specializing in crafting highly detailed and creative prompts for image generation models. Expand on the user's request with vivid imagery, artis[...]
                         messages = [
                             {"role": "system", "content": system_prompt},
                             {"role": "user", "content": f"Design an image prompt based on this: {user_image_request}"}
