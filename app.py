@@ -125,7 +125,7 @@ with st.sidebar:
     else:
         selected_page = st.sidebar.selectbox(
             "Choose a page",
-            ['Generate Image With Lion', 'Research Assistant', 'StudyMate', 'Convert Audio To Text', 'Convert Text To PDF', 'Prompt Generation']
+            ['Research Assistant', 'StudyMate', 'Convert Audio To Text', 'Convert Text To PDF', 'Prompt Generation']
         )
 
 # --- Main Page Content Logic ---
@@ -610,37 +610,4 @@ else: # User is logged in
 
                     except Exception as e:
                         st.error(f"An error occurred during PDF generation: {e}")
-
-    elif selected_page == 'Prompt Generation':
-        st.title("🎨 Generate Prompt WIth Lion AI")
-        st.write("Describe the image you envision, and I will generate a detailed prompt for an image generation AI.")
-        st.caption("It can assist in generating diverse prompts, excluding image-related ones.")
-
-        user_image_request = st.text_area("Describe your desired image:", height=150, help="e.g., 'A futuristic city at sunset' or 'A fluffy cat wearing a crown'")
-
-        if st.button("Design Image Prompt"):
-            if not user_image_request:
-                st.warning("Please provide a description for the image you want to design.")
-            else:
-                with st.spinner("Generating..."):
-                    try:
-                        system_prompt = "You are an AI specializing in crafting highly detailed and creative prompts for image generation models. Expand on the user's request with vivid imagery, artistic styles, lighting, and composition details. Provide a single, concise prompt suitable for a modern image generation AI like DALL-E or Midjourney."
-                        messages = [
-                            {"role": "system", "content": system_prompt},
-                            {"role": "user", "content": f"Design an image prompt based on this: {user_image_request}"}
-                        ]
-                        image_prompt_response = client.chat.completions.create(
-                            model="openai/gpt-oss-120b",
-                            messages=messages,
-                            max_tokens=250,
-                            temperature=0.8
-                        )
-                        generated_prompt = image_prompt_response.choices[0].message.content
-                        st.success("Image prompt designed!")
-                        st.subheader("Generated Image Prompt:")
-                        st.markdown(f"```\n{generated_prompt}\n```")
-                        st.info("You can now use this prompt with your preferred image generation AI!")
-
-    
-
     
